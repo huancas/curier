@@ -1,0 +1,3 @@
+[23-Dec-2019 16:34:47] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/infotelsolucione/public_html/admin/vistas/video1/editar.php on line 8
+[23-Dec-2019 16:42:07] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/infotelsolucione/public_html/admin/vistas/video1/editar.php on line 8
+[23-Dec-2019 16:42:10] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/infotelsolucione/public_html/admin/vistas/video1/editar.php on line 8

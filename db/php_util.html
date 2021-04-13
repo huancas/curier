@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Inserte las variables,separado por ;</p>
+<textarea id="vars">
+</textarea>
+<br>
+<button onclick="obtener()">Generar codigo</button>
+<div id="resultado"></div>
+
+
+
+<script>
+var ages = [3, 10, 18, 20];
+
+function checkAdult(age) {
+  return age >= 18;
+}
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = ages.find(checkAdult);
+  let lista = [{id:1,name:"jesus"},{id:2,name:"jose"}];
+ let res= lista.find(x => {x.id == '2'});
+ alert(res.name);
+}
+function obtener() {
+ let vars = document.getElementById("vars").value ;
+  let res = document.getElementById("resultado");
+  vars=vars.replaceAll("private $", "");
+ let arr= vars.split(';');
+ //console.log(arr);
+ let str='';
+ //privates
+  for(let i=0;i<arr.length;i++){
+ //alert (arr[i]);
+ if(arr[i].trim()!==''){
+ str+='private $'+arr[i].trim()+';<br>';
+}
+ }
+  str+='function __construct(){}<br>';
+	
+ for(let i=0;i<arr.length;i++){
+ //alert (arr[i]);
+ if(arr[i].trim()!==''){
+ let oracion = arr[i].trim();
+ oracion =oracion.charAt(0).toUpperCase()+ oracion.slice(1);
+ str+='function set'+oracion+'($v){ $this->'+arr[i].trim()+'=$v;}<br>';
+ str+='function get'+oracion+'(){ return $this->'+arr[i].trim()+';}<br>';
+ }
+ 
+ }
+ res.innerHTML= str;
+ 
+  //alert(vars);
+}
+</script>
+
+</body>
+</html>
