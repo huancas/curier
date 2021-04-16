@@ -21,10 +21,26 @@ class SolicitudEnvioController{
         }
       public function listarSolicitudEnvio(){
 			$db=Db::conectar();
-			$select=$db->prepare('SELECT * from solicitud_envio');//AND clave=:clave
+			$select=$db->prepare('SELECT * from solicitud_envio se
+             left join usuario u on se.usuario_idu = u.idu');//AND clave=:clave
 			$select->execute();
 			return $select->fetchAll(PDO::FETCH_OBJ);
-		}  
+		}
+		public function listarById($id){
+			$db=Db::conectar();
+			$select=$db->prepare('SELECT * from solicitud_envio se
+             left join usuario u on se.usuario_idu = u.idu where se.ids = ? ');
+			$select->bindParam(1, $id, PDO::PARAM_INT);
+			$select->execute();
+			return $select->fetch(PDO::FETCH_OBJ);
+		}
+		public function deleteById($id){
+			$db=DB::conectar();
+			$delete=$db->prepare('delete from solicitud_envio where ids');
+			$delete->bindParam(1, $id, PDO::PARAM_INT);
+		    
+          return $delete->execute();
+        }  
        
 
 }

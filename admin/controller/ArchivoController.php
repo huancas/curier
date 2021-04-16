@@ -9,6 +9,13 @@ class ArchivoController
 		    $insert->bindParam(3, $model->getSol_en_id(), PDO::PARAM_INT);
 		  return $insert->execute();
      }
+     public function listarByIdSolEnv($id){
+			$db=Db::conectar();
+			$select=$db->prepare('select * from archivos where solicitud_envio_ids = ? ');
+			$select->bindParam(1, $id, PDO::PARAM_INT);
+			$select->execute();
+			return $select->fetchAll(PDO::FETCH_OBJ);
+	}
     
 }
 ?>

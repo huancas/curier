@@ -126,18 +126,19 @@ conexion::disconnect();
         <li>
           <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-reply-all"></i><span>Ir a la web</span></a>
         </li>
-        <li>
+       <!-- <li>
           <a href="../escritorio/index.php"><i class="fa fa-home"></i><span>Escritorio</span></a>
-        </li>
+        </li> -->
           <li class="treeview">
           <a href="#">
-            <i class="fa fa-user-circle"></i> <span>Administradores</span>
+            <i class="fa fa-user-circle"></i> <span>Usuarios</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../usuarios/listar.php"><i class="fa fa-circle-o"></i>Lista</a></li>
+            <li><a href="../usuarios/listarc.php"><i class="fa fa-circle-o"></i>Clientes</a></li>
+            <li><a href="../usuarios/listar.php"><i class="fa fa-circle-o"></i>Administradores</a></li>
             <li><a href="../usuarios/agregar.php"><i class="fa fa-circle-o"></i>Agregar</a></li>
           </ul>
         </li>
@@ -178,7 +179,7 @@ conexion::disconnect();
         </li>
          <li class="treeview">
           <a href="#">
-            <i class="fa fa-cloud-download"></i> <span>Descargas</span>
+            <i class="fa fa-cloud-download"></i> <span>Solicitud Pedido</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

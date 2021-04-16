@@ -47,7 +47,7 @@ require_once('../../model/UsuarioModel.php');
                    $dao= new UsuarioController();
                   
 
-                  $lista=$dao->listarUsuario();
+                  $lista=$dao->listarByCargo('ADMINISTRADOR');
             foreach($lista as  $key=>$row){
                         $str='';
                           $str.= '<tr>';

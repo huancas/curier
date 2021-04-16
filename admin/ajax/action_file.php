@@ -7,9 +7,10 @@ require_once('../model/ArchivoModel.php');
 require_once('../controller/SolicitudEnvioController.php'); 
 require_once('../model/SolicitudEnvioModel.php'); 
 
+$path_files = "../../files/" 
 if(isset($_POST['upload_onli'])){
 $codAlea = generarCodigo($_SESSION['codigo']);
-$path = "../../files/" . $codAlea . ".jpg";
+$path = $path_files . $codAlea . ".jpg";
 $nameFile = $codAlea . ".jpg";
  $resul = array();
  $resul['file_name']=$nameFile;
@@ -32,7 +33,7 @@ if(isset($_POST['action'])){
 	$resul = array();
 // Use unlink() function to delete a file 
 	$res='';
-if (!unlink($file_path)) { 
+if (!file_exists("webdictionary.txt") || !unlink($file_path)) { 
    // echo ("$file_pointer cannot be deleted due to an error");
    $res='FAIL' ;
 } 

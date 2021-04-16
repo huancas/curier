@@ -25,7 +25,16 @@
         	//obtiene el usuario para el login
 		public function listarUsuario(){
 			$db=Db::conectar();
-			$select=$db->prepare('SELECT * from usuario');//AND clave=:clave
+			$select=$db->prepare('SELECT * from usuario ');//AND clave=:clave
+			$select->execute();
+			return $select->fetchAll(PDO::FETCH_OBJ);
+		}
+		public function listarByCargo($cargo){
+			$db=Db::conectar();
+			$select=$db->prepare('select * from usuario u
+left join cargo c on u.cargo_idc = c.idc 
+where c.ncargo =?');//AND clave=:clave
+			$select->bindParam(1, $cargo, PDO::PARAM_STR);
 			$select->execute();
 			return $select->fetchAll(PDO::FETCH_OBJ);
 		}

@@ -11,6 +11,13 @@ class CodigoTrackingController
 		    $insert->bindParam(4, $model->getSol_env_id(), PDO::PARAM_INT);
 		  return $insert->execute();
     }
+    public function listarByIdSolEnv($id){
+			$db=Db::conectar();
+			$select=$db->prepare('select * from codigo_tracking where solicitud_envio_ids = ? ');
+			$select->bindParam(1, $id, PDO::PARAM_INT);
+			$select->execute();
+			return $select->fetchAll(PDO::FETCH_OBJ);
+	}
     
 }
 ?>
